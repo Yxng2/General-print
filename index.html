@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XJR General Printing | Kano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .xjr-blue { background-color: #1e40af; }
+        .xjr-yellow { background-color: #facc15; }
+        .text-xjr-yellow { color: #facc15; }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+        }
+        .service-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .service-card:hover { transform: translateY(-10px); border-color: #facc15; background: rgba(30, 64, 175, 0.1); }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        #machine-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; flex-direction: column;
+        }
+        .printing-bar { width: 200px; height: 4px; background: #333; position: relative; overflow: hidden; margin-top: 20px; }
+        .printing-bar::after { content: ''; position: absolute; left: -100%; width: 100%; height: 100%; background: #facc15; animation: print-scan 2s infinite; }
+        @keyframes print-scan { 100% { left: 100%; } }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <div class="xjr-blue py-2 px-4 flex justify-between items-center text-xs md:text-sm font-bold">
+        <div class="flex gap-4">
+            <a href="tel:09015992777"><i class="fas fa-phone mr-1"></i> 09015992777</a>
+            <a href="https://wa.me/2347015119367" target="_blank"><i class="fab fa-whatsapp mr-1 text-green-400"></i> 07015119367</a>
+        </div>
+        <div class="hidden sm:block">📍 Sabin Gari, Kano</div>
+    </div>
+
+    <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-black italic tracking-tighter">XJR <span class="text-xjr-yellow">PRINTING</span></div>
+        <div class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
+            <a href="#services" class="hover:text-xjr-yellow">Services</a>
+            <a href="#about" class="hover:text-xjr-yellow">About</a>
+            <a href="#contact" class="hover:text-xjr-yellow">Contact</a>
+        </div>
+        <a href="https://wa.me/2347015119367" target="_blank" class="xjr-yellow text-black px-6 py-2 rounded-full font-bold text-sm">Chat Now</a>
+    </nav>
+
+    <section class="hero-gradient h-[90vh] flex items-center justify-center text-center px-6">
+        <div class="max-w-4xl">
+            <span class="xjr-yellow text-black px-4 py-1 rounded text-sm font-bold mb-4 inline-block">PREMIUM QUALITY SINCE 2010</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">XJR General Printing – <span class="text-xjr-yellow">Fast. Clean. Reliable Prints.</span></h1>
+            <p class="text-xl text-gray-300 mb-10">High-speed industrial printing for businesses and individuals in Kano.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#services" class="xjr-blue hover:bg-blue-700 px-8 py-4 rounded-xl font-bold text-lg transition-all">See Our Services</a>
+                <a href="https://wa.me/2347015119367" target="_blank" class="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg transition-all">WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 px-6 bg-zinc-950">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-4xl font-black mb-4 uppercase">What We <span class="text-xjr-yellow">Do</span></h2>
+            <div class="w-20 h-1 xjr-yellow mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="service-card p-8 rounded-3xl bg-zinc-900 cursor-pointer" onclick="showAnimation('Flyers & Posters')">
+                <i class="fas fa-layer-group text-4xl text-xjr-yellow mb-6"></i>
+                <h3 class="text-2xl font-bold mb-3">Flyers & Posters</h3>
+                <p class="text-gray-400">High-definition marketing materials to boost your brand presence.</p>
+            </div>
+            <div class="service-card p-8 rounded-3xl bg-zinc-900 cursor-pointer" onclick="showAnimation('Business Cards')">
+                <i class="fas fa-id-card text-4xl text-xjr-yellow mb-6"></i>
+                <h3 class="text-2xl font-bold mb-3">Business Cards</h3>
+                <p class="text-gray-400">Premium cardstock with spot UV and matte finishes.</p>
+            </div>
+            <div class="service-card p-8 rounded-3xl bg-zinc-900 cursor-pointer" onclick="showAnimation('Wedding Cards')">
+                <i class="fas fa-heart text-4xl text-xjr-yellow mb-6"></i>
+                <h3 class="text-2xl font-bold mb-3">Wedding Cards</h3>
+                <p class="text-gray-400">Elegant programs and invites for your special day.</p>
+            </div>
+            <div class="service-card p-8 rounded-3xl bg-zinc-900 cursor-pointer" onclick="showAnimation('T-Shirt Printing')">
+                <i class="fas fa-shirt text-4xl text-xjr-yellow mb-6"></i>
+                <h3 class="text-2xl font-bold mb-3">T-Shirt Printing</h3>
+                <p class="text-gray-400">Durable heat transfer and screen printing solutions.</p>
+            </div>
+            <div class="service-card p-8 rounded-3xl bg-zinc-900 cursor-pointer" onclick="showAnimation('Bags & Stickers')">
+                <i class="fas fa-shopping-bag text-4xl text-xjr-yellow mb-6"></i>
+                <h3 class="text-2xl font-bold mb-3">Bags & Stickers</h3>
+                <p class="text-gray-400">Branded packaging and adhesive vinyl stickers.</p>
+            </div>
+            <div class="service-card p-8 rounded-3xl bg-zinc-900 cursor-pointer" onclick="showAnimation('Lamination')">
+                <i class="fas fa-book text-4xl text-xjr-yellow mb-6"></i>
+                <h3 class="text-2xl font-bold mb-3">Lamination & Binding</h3>
+                <p class="text-gray-400">Protect and organize your important documents.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 bg-zinc-900">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl border-4 border-xjr-blue" alt="Shop">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-black mb-6">About <span class="text-xjr-yellow">XJR Printing</span></h2>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">We provide high-quality printing solutions in Kano with fast delivery and free design support.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-black p-4 rounded-xl border border-zinc-800">
+                        <div class="text-xjr-yellow font-bold text-2xl">100%</div>
+                        <div class="text-xs text-gray-500 uppercase">Quality</div>
+                    </div>
+                    <div class="bg-black p-4 rounded-xl border border-zinc-800">
+                        <div class="text-xjr-yellow font-bold text-2xl">24hr</div>
+                        <div class="text-xs text-gray-500 uppercase">Turnaround</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 bg-black">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-5xl font-black mb-8">Contact Us</h2>
+                <div class="space-y-6">
+                    <a href="tel:09015992777" class="flex items-center gap-6 p-6 bg-zinc-900 rounded-2xl">
+                        <div class="w-14 h-14 xjr-blue rounded-full flex items-center justify-center"><i class="fas fa-phone"></i></div>
+                        <div><div class="text-gray-500 text-sm">Call Us</div><div class="text-xl font-bold">09015992777</div></div>
+                    </a>
+                    <a href="https://wa.me/2347015119367" target="_blank" class="flex items-center gap-6 p-6 bg-zinc-900 rounded-2xl">
+                        <div class="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center"><i class="fab fa-whatsapp"></i></div>
+                        <div><div class="text-gray-500 text-sm">WhatsApp</div><div class="text-xl font-bold">07015119367</div></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass p-8 md:p-12 rounded-[2rem]">
+                <form id="whatsappForm">
+                    <div class="mb-4"><input type="text" id="name" placeholder="Your Name" required class="w-full bg-zinc-800 rounded-xl px-6 py-4 outline-none text-white"></div>
+                    <div class="mb-4">
+                        <select id="service" required class="w-full bg-zinc-800 rounded-xl px-6 py-4 outline-none text-white">
+                            <option value="">Select Service</option>
+                            <option value="Flyers">Flyers & Posters</option>
+                            <option value="Business Cards">Business Cards</option>
+                            <option value="T-Shirts">T-Shirt Printing</option>
+                            <option value="Wedding Cards">Wedding Cards</option>
+                        </select>
+                    </div>
+                    <div class="mb-6"><textarea id="message" placeholder="Details of your order" rows="3" required class="w-full bg-zinc-800 rounded-xl px-6 py-4 outline-none text-white"></textarea></div>
+                    <button type="submit" class="xjr-yellow text-black w-full py-5 rounded-xl font-black text-xl">Order via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-zinc-800 text-center">
+        <div class="text-2xl font-black mb-4 italic">XJR <span class="text-xjr-yellow">PRINTING</span></div>
+        <p class="text-gray-500 mb-6">Sabin Gari, Kano State, Nigeria</p>
+        <div class="text-xs text-gray-600 uppercase tracking-widest italic">Free Design Support Available</div>
+    </footer>
+
+    <div id="machine-overlay">
+        <button onclick="hideAnimation()" class="absolute top-10 right-10 text-white text-4xl">&times;</button>
+        <div class="text-center">
+            <i class="fas fa-print text-7xl text-xjr-yellow animate-bounce mb-4"></i>
+            <h2 id="service-title" class="text-3xl font-black uppercase mb-2"></h2>
+            <div class="printing-bar mx-auto"></div>
+        </div>
+    </div>
+
+    <script>
+        function showAnimation(title) {
+            document.getElementById('service-title').innerText = title;
+            document.getElementById('machine-overlay').style.display = 'flex';
+            setTimeout(hideAnimation, 2500);
+        }
+        function hideAnimation() { document.getElementById('machine-overlay').style.display = 'none'; }
+
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const msg = document.getElementById('message').value;
+            const phone = "2347015119367";
+            const text = `Hello XJR Printing, I am ${name}. %0A%0A*Service:* ${service} %0A*Details:* ${msg}`;
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
+
